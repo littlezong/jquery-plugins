@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQ分页插件</title>
+	<link rel="stylesheet" type="text/css" href="./pagination.css">
+</head>
+<body>
+	<div class="main">
+	</div>
+	<div class="test" style="margin-top: 20px;"></div>
+
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="./pagination.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.main').pagination({
+				className: 'pagination',	// 自定义父级类名，防止样式冲突，需修改样式
+				current: 1,					// 选中页码
+				pageSize: 10,				// 每页显示量
+				total: 2000,				// 数据量
+				showTotal: true,			// 是否显示数据总数
+				showQuickJumper: true,		// 是否显示快速跳转
+				// 页码改变回调
+				onPageChange: function(current){
+					console.log(current);
+				}
+			});
+
+			$('.test').pagination({
+				total: 200,
+				showTotal: true
+			});
+		});
+	</script>
+</body>
+</html>

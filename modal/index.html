@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Jq模态框插件</title>
+	<link rel="stylesheet" type="text/css" href="./modal.css">
+</head>
+<body>
+	<!-- data-modal须设置，且唯一 -->
+	<button type="button" class="btn btn-primary" id="modal" data-modal="modal">modal</button>
+	<button type="button" class="btn btn-primary" id="test" data-modal="test">test</button>
+
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="./modal.js"></script>
+	<script>
+		$(function(){
+			$('#modal').modal({
+				title: '模态框标题',
+				content: '<h2>内容部分</h2>',
+				footer: null,			// null不显示底部，不设置默认展示
+				width: 800,				// 模态框宽度
+				closable: true,			// 是否显示右上角关闭按钮
+				maskClosable: true,		// 点击蒙层是否关闭
+				okText: '确定',
+				cancelText: '取消',
+				onOk: function(){
+					console.log('确定');
+				},
+				onCancel: function(){
+					console.log('取消');
+				}
+			});
+			$('#test').modal({
+				title: 'test'
+			});
+		});
+	</script>
+</body>
+</html>

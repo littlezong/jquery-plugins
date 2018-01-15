@@ -1,0 +1,55 @@
+.z-switch{
+	position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 22px;
+    min-width: 44px;
+    line-height: 20px;
+    vertical-align: middle;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background-color: rgba(0,0,0,.25);
+    cursor: pointer;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.z-switch.z-switch-checked{
+	background-color: teal;
+}
+
+.z-switch:after{
+	position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 1px;
+    top: 1px;
+    border-radius: 18px;
+    background-color: #fff;
+    content: " ";
+    cursor: pointer;
+    -webkit-transition: all .3s,width .3s;
+    transition: all .3s,width .3s;
+}
+
+.z-switch.z-switch-checked:after{
+	left: 100%;
+    margin-left: -19px;
+}
+
+.z-switch-inner{
+	color: #fff;
+    font-size: 12px;
+    margin-left: 24px;
+    margin-right: 6px;
+    display: block;
+}
+
+.z-switch-checked .z-switch-inner{
+	margin-left: 6px;
+    margin-right: 24px;
+
+}

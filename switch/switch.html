@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Switch</title>
+	<link rel="stylesheet" type="text/css" href="./switch.css"/>
+</head>
+<body>
+	<span id="aaa"></span>
+	<span id="bbb"></span>
+	<span id="ccc"></span>
+
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="./switch.js"></script>
+	<script>
+		$(function(){
+			$('#aaa').switch({
+				// isCheck: false,
+				text: ['开','关'],
+				callback: function(params){
+					if(!params){
+						$('body').css('background', '#000');
+					}else{
+						$('body').css('background', '#fff');
+					}
+				}
+			});
+
+			$('#bbb').switch({
+				text: ['男', '女']
+			});
+			$('#ccc').switch();
+		});
+	</script>
+</body>
+</html>

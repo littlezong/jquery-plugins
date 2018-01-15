@@ -1,0 +1,225 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.modal-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #373737;
+    background-color: rgba(55,55,55,.6);
+    height: 100%;
+    z-index: 1000;
+    filter: alpha(opacity=50);
+}
+.modal-mask-hidden {
+    display: none;
+}
+
+.modal-wrap {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+
+.modal {
+    position: relative;
+    width: auto;
+    margin: 0 auto;
+    top: 100px;
+    padding-bottom: 24px;
+}
+
+.zoom-appear, 
+.zoom-enter, 
+.zoom-leave {
+    -webkit-animation-duration: .2s;
+    animation-duration: .2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+.zoom-appear.zoom-appear-active, 
+.zoom-enter.zoom-enter-active {
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+    pointer-events: none;
+}
+
+.modal.zoom-appear, 
+.modal.zoom-enter {
+    -webkit-animation-duration: .3s;
+    animation-duration: .3s;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    opacity: 0;
+}
+
+.zoom-leave {
+    -webkit-animation-timing-function: cubic-bezier(.78,.14,.15,.86);
+    animation-timing-function: cubic-bezier(.78,.14,.15,.86);
+}
+
+.zoom-leave.zoom-leave-active {
+    -webkit-animation-name: zoomOut;
+    animation-name: zoomOut;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+    pointer-events: none;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    border: 0;
+    border-radius: 4px;
+    background-clip: padding-box;
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+}
+
+.modal-close {
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    -webkit-transition: color .3s ease;
+    transition: color .3s ease;
+    color: rgba(0,0,0,.43);
+    outline: 0;
+}
+
+.modal-close-x {
+    display: block;
+    font-style: normal;
+    vertical-align: baseline;
+    text-align: center;
+    text-transform: none;
+    text-rendering: auto;
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 14px;
+}
+
+.modal-header {
+    padding: 13px 16px;
+    border-radius: 4px 4px 0 0;
+    background: #fff;
+    color: rgba(0,0,0,.65);
+    border-bottom: 1px solid #e9e9e9;
+}
+.modal-title {
+    margin: 0;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    color: rgba(0,0,0,.85);
+}
+
+.modal-body {
+    padding: 16px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.modal-footer {
+    border-top: 1px solid #e9e9e9;
+    padding: 10px 16px 10px 10px;
+    text-align: right;
+    border-radius: 0 0 4px 4px;
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 500;
+    text-align: center;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    line-height: 1.5;
+    padding: 0 15px;
+    font-size: 12px;
+    border-radius: 4px;
+    height: 28px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all .3s cubic-bezier(.645,.045,.355,1);
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
+    position: relative;
+    color: rgba(0,0,0,.65);
+    background-color: #fff;
+    border-color: #d9d9d9;
+}
+.btn-lg {
+    padding: 0 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    height: 32px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #108ee9;
+    border-color: #108ee9;
+}
+.btn, 
+.btn:active, 
+.btn:focus{
+    outline: 0;
+}
+
+.modal-footer button+button {
+    margin-left: 8px;
+    margin-bottom: 0;
+}
+
+@keyframes zoomIn{
+    from {
+        opacity: 0;
+        -webkit-transform: scale(.2);
+        transform: scale(.2)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}
+@keyframes zoomOut{
+    from {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: scale(.2);
+        transform: scale(.2)
+    }
+}
